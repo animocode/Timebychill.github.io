@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+
+}
+.page{
+    width: 100%;
+    min-height: 100vh;
+    background: #00db92; /* you can add another style according to your preferance*/
+    color: #fff;
+    position: relative;
+    transition: all ease 0.5s;
+    overflow: hidden;
+
+}
+.container{
+    width: 55vw;
+    height: 20vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.clock{
+    width: 100%;
+    height: 100%;
+    background: rgba(54, 50, 54, 0.11);
+    border-radius: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(40px); /*it will blur our clock background which gives professional looks */
+
+}
+
+.container::before{
+    content: '';
+    width: 180px;
+    height: 180px;
+    background-color:#2a2929;
+    border-radius: 20px;
+    position: absolute;
+    left:-10%;
+    top: -50px;
+    z-index: -1;
+    animation: slide ease-in infinite 1s;
+    filter: drop-shadow(10px 10px 30px#00db92);
+}
+.container::after{
+    content: '';
+    width: 150px;
+    height: 150px;
+    background-color:#ffffff;
+    border-radius: 20px;
+    position: absolute;
+    right:-20px;
+    bottom: -50px;
+    z-index: -1;
+    animation: slide ease-out infinite 1s;
+}
+.clock span{
+    font-size: 10vw;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+.clock span::after{
+    font-size: 2vw;
+    position: absolute;
+    bottom: -1vw;
+    left: 10vh;
+    transform: translateX(-50px);
+}
+#hrs::after{
+    content: 'HOURS';
+}
+#min::after{
+    content: 'MINS';
+}
+#sec::after{
+    content: 'SEC';
+}
+
+@keyframes slide {
+    to{
+        transform:rotate(0deg);
+    }
+    from{
+        transform:rotate(360deg);
+    }
+}
+#btn, #btn2{
+    height: 5%;
+    width: 10%;
+    position: absolute;
+    top: 1%;
+    right: 0.90%;
+    transition: all ease-in 0.2s;
+}
+#btn{
+    z-index: 9;
+}
+#btn2{
+    visibility: hidden;
+    filter: invert(1);
+}
+
+span::selection{
+    color:#00db92;
+    background-color: #2a2929;
+}
+span{
+    text-shadow: 0 0 60px #00db929f;
+}
+.logo, .logo2{
+    position: relative;
+    top: 10vh;
+    left: 30%;
+    font-size: 50px;
+    text-shadow: 1px 3px black;
+    font-family:'barlow';
+    opacity: 90%;
+}
+.logo2{
+    font-size: 15px;
+    text-shadow: 2px 1px black;
+}
+.logo::selection{
+    color:#00db92;
+    background-color: #2a2929;
+}
+
+.logo2::selection{
+    color:#00db92;
+    background-color: #2a2929;
+}
